@@ -24,8 +24,14 @@ public class ActivityPart3 extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
         //
-        cv_shape = (Shape_custom_view3) binding.part3CvShape1;
+        cv_shape = (Shape_custom_view3) binding.part3CvShape3;
 
+        binding.part3BtnSwapColor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cv_shape.SwapColor();
+            }
+        });
 
         //
         binding.part3BtnNextPart4.setOnClickListener(new View.OnClickListener() {

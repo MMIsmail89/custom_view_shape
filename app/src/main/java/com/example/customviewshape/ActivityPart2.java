@@ -22,7 +22,7 @@ public class ActivityPart2 extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
         //
-        cv_shape = (Shape_custom_view2) binding.part2CvShape1;
+        cv_shape = (Shape_custom_view2) binding.part2CvShape2;
 
         binding.part2BtnSwapColor.setOnClickListener(new View.OnClickListener() {
             @Override

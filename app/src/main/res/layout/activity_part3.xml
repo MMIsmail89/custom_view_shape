@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/part3_tv_topic1"
+        android:id="@+id/part3_tv_topic3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hi @ Shape Custom View - Part 3"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.example.customviewshape.custom_view.Shape_custom_view3
-        android:id="@+id/part3_cv_shape1"
+        android:id="@+id/part3_cv_shape3"
         android:layout_width="match_parent"
         android:layout_height="350dp"
 
@@ -31,7 +31,10 @@
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/part3_tv_topic1"/>
+        app:layout_constraintTop_toBottomOf="@+id/part3_tv_topic3"
+
+        app:square_size="@dimen/squareSize"
+        app:square_color="@color/SquareColor"       />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/part3_btn_swapColor"
@@ -44,7 +47,7 @@
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/part3_cv_shape1"/>
+        app:layout_constraintTop_toBottomOf="@+id/part3_cv_shape3"/>
 
     <Button
         android:id="@+id/part3_btn_NextPart4"
