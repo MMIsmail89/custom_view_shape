@@ -10,26 +10,26 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 
-public class Shape_custom_view extends View {
+public class Shape_custom_view1 extends View {
     private static final int SQUARE_SIZE = 250;
     private Rect _RectSquare;
     private Paint _PaintSquare;
-    public Shape_custom_view(Context context) {
+    public Shape_custom_view1(Context context) {
         super(context);
         init(null);
     }
 
-    public Shape_custom_view(Context context, @Nullable AttributeSet attrs) {
+    public Shape_custom_view1(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init(attrs);
     }
 
-    public Shape_custom_view(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public Shape_custom_view1(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(attrs);
     }
 
-    public Shape_custom_view(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public Shape_custom_view1(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init(attrs);
     }

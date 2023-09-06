@@ -21,7 +21,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.example.customviewshape.custom_view.Shape_custom_view
+    <com.example.customviewshape.custom_view.Shape_custom_view1
         android:id="@+id/main_cv_shape1"
         android:layout_width="match_parent"
         android:layout_height="350dp"

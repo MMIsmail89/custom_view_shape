@@ -6,14 +6,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.customviewshape.custom_view.Shape_custom_view;
+import com.example.customviewshape.custom_view.Shape_custom_view3;
 
 import com.example.customviewshape.databinding.ActivityPart3Binding;
 
 public class ActivityPart3 extends AppCompatActivity {
 
     private ActivityPart3Binding binding;
-    private Shape_custom_view cv_shape;
+    private Shape_custom_view3 cv_shape;
 
 
     @Override
@@ -24,7 +24,7 @@ public class ActivityPart3 extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
         //
-        cv_shape = (Shape_custom_view) binding.part3CvShape1;
+        cv_shape = (Shape_custom_view3) binding.part3CvShape1;
 
 
         //

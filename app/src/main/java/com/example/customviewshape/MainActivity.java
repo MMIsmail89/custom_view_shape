@@ -6,12 +6,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.customviewshape.custom_view.Shape_custom_view;
+import com.example.customviewshape.custom_view.Shape_custom_view1;
 import com.example.customviewshape.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
-    private Shape_custom_view cv_shape;
+    private Shape_custom_view1 cv_shape;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
         //
-        cv_shape = (Shape_custom_view) binding.mainCvShape1;
+        cv_shape = (Shape_custom_view1) binding.mainCvShape1;
 
         binding.mainBtnSwapColor.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -21,13 +21,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.example.customviewshape.custom_view.Shape_custom_view
+    <com.example.customviewshape.custom_view.Shape_custom_view2
         android:id="@+id/part2_cv_shape1"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
+        android:layout_height="390dp"
 
         android:layout_margin="20dp"
-        android:background="#80CDDC39"
+        android:background="#26CDDC39"
+
+        app:square_size="@dimen/squareSize"
+        app:square_color="@color/SquareColor"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
