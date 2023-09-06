@@ -6,11 +6,15 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.graphics.RectF;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewTreeObserver;
 
 import androidx.annotation.Nullable;
 
@@ -65,6 +69,21 @@ public class Shape_custom_view3 extends View {
         //
         _bitmapMagdiPic = BitmapFactory.decodeResource(getResources(), R.drawable.magdi_app1);
 
+        // >> to read  getWidth(), getHeight() correctly !!
+        getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN){
+                    getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                }else{
+                    getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                }
+                // >> resize the image
+                _bitmapMagdiPic = getResizedBitmap(_bitmapMagdiPic, getWidth(), getHeight());
+            }
+        });
+
+
         // >> get the R.styleable.CustomView from the Context
         // TypedArray is often used to obtain attributes and values defined in XML resource files,
         TypedArray typedArray = getContext().obtainStyledAttributes(set, R.styleable.Shape_custom_view2);
@@ -81,6 +100,23 @@ public class Shape_custom_view3 extends View {
         // you should call typedArray.recycle() to release the memory associated with the TypedArray object.
         typedArray.recycle();
     }
+
+    private Bitmap getResizedBitmap(Bitmap bitmapInRequesting, int requiredWidth, int requiredHeight) {
+        Matrix matrix = new Matrix();
+
+        RectF source = new RectF(0,0,
+                bitmapInRequesting.getWidth(), bitmapInRequesting.getHeight());
+        RectF destination = new RectF(0,0,requiredWidth, requiredHeight);
+
+        matrix.setRectToRect(source, destination, Matrix.ScaleToFit.CENTER);
+
+        Bitmap resultingBitmap = Bitmap.createBitmap(bitmapInRequesting, 0, 0,
+                bitmapInRequesting.getWidth(), bitmapInRequesting.getHeight(),
+                matrix, true);
+
+        return resultingBitmap;
+    }
+
     //
     public void SwapColor(){
         _PaintSquare.setColor(
@@ -138,7 +174,7 @@ public class Shape_custom_view3 extends View {
         //
 
         // >> Draw Bitmap
-        // canvas.drawBitmap(_bitmapMagdiPic, 0, 0, null);
+        canvas.drawBitmap(_bitmapMagdiPic, 0, 0, null);
 
 
     }
