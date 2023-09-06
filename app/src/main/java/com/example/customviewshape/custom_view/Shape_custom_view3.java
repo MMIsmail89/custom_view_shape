@@ -20,6 +20,9 @@ import androidx.annotation.Nullable;
 
 import com.example.customviewshape.R;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class Shape_custom_view3 extends View {
     //
     private static final int SQUARE_SIZE = 100;
@@ -79,7 +82,37 @@ public class Shape_custom_view3 extends View {
                     getViewTreeObserver().removeOnGlobalLayoutListener(this);
                 }
                 // >> resize the image
-                _bitmapMagdiPic = getResizedBitmap(_bitmapMagdiPic, getWidth(), getHeight());
+
+                int padding = 50;
+                _bitmapMagdiPic = getResizedBitmap(_bitmapMagdiPic,
+                        getWidth() - padding, getHeight() - padding);
+                new Timer().scheduleAtFixedRate(new TimerTask() {
+                    @Override
+                    public void run() {
+
+                        int _imageNewX = _bitmapMagdiPic.getWidth() - 50;
+                        int _imageNewY = _bitmapMagdiPic.getHeight() - 50;
+
+                        if(_imageNewX <=25 || _imageNewY<=25){
+
+                            _imageNewX = getWidth()-50;
+                            _imageNewY = getHeight()-50;
+                            _bitmapMagdiPic = BitmapFactory.decodeResource(getResources(), R.drawable.magdi_app1);
+
+                            _bitmapMagdiPic = getResizedBitmap(_bitmapMagdiPic,
+                                    _imageNewX, _imageNewY);
+
+                            postInvalidate();
+
+                            cancel();
+                            return;
+                        }
+                        _bitmapMagdiPic = getResizedBitmap(_bitmapMagdiPic,
+                                _imageNewX, _imageNewY);
+                        postInvalidate();
+
+                    }
+                }, 5001, 2001);
             }
         });
 
@@ -110,9 +143,12 @@ public class Shape_custom_view3 extends View {
 
         matrix.setRectToRect(source, destination, Matrix.ScaleToFit.CENTER);
 
+
         Bitmap resultingBitmap = Bitmap.createBitmap(bitmapInRequesting, 0, 0,
                 bitmapInRequesting.getWidth(), bitmapInRequesting.getHeight(),
                 matrix, true);
+
+
 
         return resultingBitmap;
     }
@@ -174,7 +210,10 @@ public class Shape_custom_view3 extends View {
         //
 
         // >> Draw Bitmap
-        canvas.drawBitmap(_bitmapMagdiPic, 0, 0, null);
+        float _imageX = (getWidth() - _bitmapMagdiPic.getWidth())/2;
+        float _imageY = (getHeight() - _bitmapMagdiPic.getHeight())/2;
+
+        canvas.drawBitmap(_bitmapMagdiPic, _imageX, _imageY, null);
 
 
     }
